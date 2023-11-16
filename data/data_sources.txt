@@ -1,1 +1,2 @@
 https://www.kaggle.com/datasets/mohansacharya/graduate-admissions/
+https://www.kaggle.com/datasets/budincsevity/szeged-weather/data
