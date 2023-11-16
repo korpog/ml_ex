@@ -1,2 +1,4 @@
 https://www.kaggle.com/datasets/mohansacharya/graduate-admissions/
 https://www.kaggle.com/datasets/budincsevity/szeged-weather/data
+https://www.kaggle.com/datasets/muratkokludataset/date-fruit-datasets/data
+https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package/data

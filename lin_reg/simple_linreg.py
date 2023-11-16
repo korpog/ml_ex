@@ -18,12 +18,12 @@ model.fit(X_train, y_train)
 
 pred = model.predict(X_valid)
 
-mse =  mean_squared_error(y_valid, pred)
+mse = mean_squared_error(y_valid, pred)
 mae = mean_absolute_error(y_valid, pred)
 r2 = r2_score(y_valid, pred)
 
 print(f'mean_squared_error : {mse}')
 print(f'mean_absolute_error : {mae}')
 print(f'R2 score : {r2}')
-print (model.coef_)
-print (model.intercept_)
+print(model.coef_)
+print(model.intercept_)
