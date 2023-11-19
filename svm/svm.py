@@ -1,12 +1,11 @@
 import pandas as pd
+import numpy as np
 from sklearn import preprocessing
-from sklearn.metrics import accuracy_score
+from sklearn.svm import LinearSVC
 from sklearn.model_selection import train_test_split
-from xgboost import XGBClassifier
+from sklearn.metrics import accuracy_score
 
-# read data
-model = XGBClassifier(n_estimators=50, learning_rate=0.5, max_depth=2,
-                      n_jobs=6, early_stopping_rounds=5, random_state=0)
+model = LinearSVC(dual="auto", random_state=0)
 data = pd.read_excel('data/fruit.xlsx')
 
 le = preprocessing.LabelEncoder()
@@ -20,9 +19,7 @@ X.drop(['Class'], axis=1, inplace=True)
 X_train, X_valid, y_train, y_valid = train_test_split(X, y, train_size=0.8, test_size=0.2,
                                                       random_state=0)
 
-model.fit(X_train, y_train,
-          eval_set=[(X_valid, y_valid)],
-          verbose=False)
+model.fit(X_train, y_train)
 
 predictions = model.predict(X_valid)
 
