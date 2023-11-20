@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn import preprocessing
 from sklearn.svm import LinearSVC
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import accuracy_score
 
 model = LinearSVC(dual="auto", random_state=0)
@@ -16,13 +16,8 @@ y = le.transform(data['Class'])
 X = data.copy()
 X.drop(['Class'], axis=1, inplace=True)
 
-X_train, X_valid, y_train, y_valid = train_test_split(X, y, train_size=0.8, test_size=0.2,
-                                                      random_state=0)
+scores = cross_val_score(model, X, y, cv=5)
 
-model.fit(X_train, y_train)
-
-predictions = model.predict(X_valid)
-
-acc = accuracy_score(y_valid, predictions)
-
-print(f"Accuracy: {acc}")
+for score in scores:
+    print(f"Accuracy scores: {scores}")
+    print(f"Mean accuracy score: {scores.mean()}")

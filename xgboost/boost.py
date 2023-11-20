@@ -2,12 +2,17 @@ import pandas as pd
 from sklearn import preprocessing
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
 from xgboost import XGBClassifier
 
 # read data
 model = XGBClassifier(n_estimators=50, learning_rate=0.5, max_depth=2,
                       n_jobs=6, early_stopping_rounds=5, random_state=0)
 data = pd.read_excel('data/fruit.xlsx')
+
+# print unique values in a column
+# print(data['SHAPEFACTOR_1'].unique())
+# print(data['SHAPEFACTOR_2'].unique())
 
 le = preprocessing.LabelEncoder()
 
